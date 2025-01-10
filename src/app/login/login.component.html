@@ -1,13 +1,16 @@
-<form action="">
+<form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="email">Username</label>
-        <input type="email" name="email" id="" placeholder="Enter the email">
+        <input  name="email" id="username" placeholder="Enter the email" formControlName="username" >
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="">
+        <input type="password" name="password" id="password" formControlName="password">
     </div>
     <div>
-        <button>Login</button>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </div>
+    <div>
+        <button type="button" [routerLink]="['/register']" routerLinkActive="router-link-active" > Register</button>
     </div>
 </form>
