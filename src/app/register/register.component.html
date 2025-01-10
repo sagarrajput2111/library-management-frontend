@@ -1,19 +1,19 @@
-<form action="">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="email">Email ID</label>
-        <input type="email" name="email">
+        <input type="email" name="email" formControlName="email">
     </div>
     <div>
         <label for="firstName"> First Name</label>
-        <input type="text" name="firstName">
+        <input type="text" name="firstName" formControlName="firstName">
     </div>
     <div>
         <label for="lastName">Last Name</label>
-        <input type="text" name="lastName">
+        <input type="text" name="lastName" formControlName="lastName">
     </div>
     <div>
         <label for="occupation">select occupation</label>
-        <select name="" id="" name="occupation">
+        <select name="" id="" name="occupation" formControlName="occupation">
             <option disabled="true" selected >select</option>
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
@@ -22,11 +22,15 @@
     </div>
     <div>
         <label for="password"> Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" formControlName="password">
     </div>
 
     <div>
-        <button>Register</button>
+        <button type="submit" [disabled]="!registerForm.valid">Register</button>
     </div>
+    <div>
+        <button type="button" [routerLink]="['/login']" routerLinkActive="router-link-active" > Login</button>
+    </div>
+
 
 </form>
