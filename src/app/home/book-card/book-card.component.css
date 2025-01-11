@@ -1,0 +1,11 @@
+.book-card
+{
+    height: 200px;
+    width: 150px;
+    background-color: rgb(223, 244, 244);
+}
+#bookName
+{
+    padding-top: 80px;
+
+}

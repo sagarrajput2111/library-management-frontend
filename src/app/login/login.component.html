@@ -2,10 +2,16 @@
     <div>
         <label for="email">Username</label>
         <input  name="email" id="username" placeholder="Enter the email" formControlName="username" >
+        @if (loginForm.get("username")?.invalid&&loginForm.get("username")?.touched) {
+            <span class="error-msg"> Enter correct username!</span>
+        }
     </div>
     <div>
         <label for="password">Password</label>
         <input type="password" name="password" id="password" formControlName="password">
+        @if (loginForm.get("password")?.invalid&&loginForm.get("password")?.touched) {
+            <span class="error-msg">Enter password!</span>
+        }
     </div>
     <div>
         <button type="submit" [disabled]="!loginForm.valid">Login</button>

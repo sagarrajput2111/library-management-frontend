@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginCreds } from './models/login.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
