@@ -1,22 +1,27 @@
-<form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="email">Username</label>
-        <input  name="email" id="username" placeholder="Enter the email" formControlName="username" >
-        @if (loginForm.get("username")?.invalid&&loginForm.get("username")?.touched) {
-            <span class="error-msg"> Enter correct username!</span>
-        }
+<div class="outer">
+    <div class="wrapper">
+        <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h1>Login</h1>
+            <div class="input-box">
+                <!-- <label for="email">Username</label> -->
+                <input name="email" id="username" placeholder="  Username" formControlName="username">
+                @if (loginForm.get("username")?.invalid&&loginForm.get("username")?.touched) {
+                <span class="error-msg"> Enter correct username!</span>
+                }
+            </div>
+            <div class="input-box">
+                <!-- <label for="password">Password</label> -->
+                <input type="password" name="password" id="password" formControlName="password" placeholder="  Password">
+                @if (loginForm.get("password")?.invalid&&loginForm.get("password")?.touched) {
+                <span class="error-msg">Enter password!</span>
+                }
+            </div>
+            <div class="login-btn">
+                <button type="submit"[ngClass]="{'btn-invalid': !loginForm.valid, 'btn-valid': loginForm.valid}" [disabled]="!loginForm.valid" >Login</button>
+            </div>
+            <div class="register-link">
+                <p>Don't have an account? <a [routerLink]="['/register']">Register</a></p>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" formControlName="password">
-        @if (loginForm.get("password")?.invalid&&loginForm.get("password")?.touched) {
-            <span class="error-msg">Enter password!</span>
-        }
-    </div>
-    <div>
-        <button type="submit" [disabled]="!loginForm.valid">Login</button>
-    </div>
-    <div>
-        <button type="button" [routerLink]="['/register']" routerLinkActive="router-link-active" > Register</button>
-    </div>
-</form>
+</div>
